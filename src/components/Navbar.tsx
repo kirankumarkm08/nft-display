@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { Navbar as NavbarData } from "@/constants";
 import MobileMenu from "./MobileView";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
+// import { useAccount } from "wagmi";
 // import { useCardano } from "@/provider/CardenoProvider";
 // import { CardanoWalletSelector } from "@/components/Cardano-wallet-selector";
 
