@@ -20,7 +20,6 @@ import WalletInfo from "@/components/Wallet-Info";
 import { base } from "wagmi/chains";
 import { Button } from "@/components/ui/button";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { isAddress } from "viem";
 
 export default function Dashboard() {
   const router = useRouter();
