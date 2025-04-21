@@ -1,17 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
+import { Button } from "./ui/button";
 
 const Hero = () => {
   const router = useRouter();
   const { address } = useAccount();
 
-  function handleClick(destination: string) {
-    router.push(destination);
-  }
+  // function handleClick(destination: string) {
+  //   router.push(destination);
+  // }
+
+  useEffect(() => {
+    address && router.push("/base");
+  }, [address]);
 
   return (
     <main className="flex-1 flex flex-col">
@@ -115,30 +120,9 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {!address ? "" : <ConnectButton />}
-
-              {/* {address && router.push("/Dashboard")} */}
-
-              <button
-                className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-md flex items-center justify-center transition-colors"
-                onClick={() => handleClick("/support")}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 16v-4" />
-                  <path d="M12 8h.01" />
-                </svg>
-                Learn More
-              </button>
+              <ConnectButton label="Base" />
+              <Button className="px-4 py-5">Cardano</Button>
+              {/* <ConnectButton label="Cardano" /> */}
             </div>
           </div>
         </div>

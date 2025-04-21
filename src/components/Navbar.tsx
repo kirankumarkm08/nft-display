@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { Navbar as NavbarData } from "@/constants";
 import MobileMenu from "./MobileView";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+// import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 // import { useCardano } from "@/provider/CardenoProvider";
 // import { CardanoWalletSelector } from "@/components/Cardano-wallet-selector";
 
 export default function Navbar() {
-  const router = useRouter();
-  const { address: evmAddress, isConnected: isEvmConnected } = useAccount();
+  // const router = useRouter();
+  // const { address: evmAddress, isConnected: isEvmConnected } = useAccount();
   // const { connected: isCardanoConnected, stakeAddress } = useCardano();
 
   // Navigate to dashboard when connected to either wallet
@@ -31,23 +30,17 @@ export default function Navbar() {
         <Link href="/" className="font-bold">
           Rare evo 2025
         </Link>
-
-        <div className="md:flex gap-5 hidden">
-          {NavbarData.map((item) => (
-            <Link
-              href={item.link}
-              key={item.label}
-              className="hover:text-gray-600 transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
       </div>
-
-      <div className="hidden lg:flex items-center">
-        <ConnectButton />
-        {/* <CardanoWalletSelector /> */}
+      <div className="md:flex gap-5 hidden">
+        {NavbarData.map((item) => (
+          <Link
+            href={item.link}
+            key={item.label}
+            className="hover:text-gray-600 transition-colors"
+          >
+            {item.label}
+          </Link>
+        ))}
       </div>
 
       <div className="lg:hidden">
